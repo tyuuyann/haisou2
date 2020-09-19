@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app='crm'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- JQuary -->
+    <script src="lib/jquery.min.js"></script>
+
+    <!-- Angular -->
+	<script src="lib/angular.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-1.2.0.min.js"></script>
+	<script src="lib/angular-ui-router.js"></script>
+	<script src="lib/angular-animate.min.js"></script>
+	<script src="lib/angular-touch.min.js"></script>
+
+		<!-- boostrap_css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- css -->
+	<link href="css/layout.css" rel="stylesheet">
+
+	<!-- boostrap_js -->
+	<script src="lib/bootstrap.min.js"></script>
+
+	<!-- uiRouter -->
+    <script type="text/javascript" src="js/base/uiRoterBase.js"></script>
+
+    <!-- base -->
+    <script type="text/javascript" src="js/core/baseController.js"></script>
+    <script type="text/javascript" src="js/core/basebusiness.js"></script>
+
+	<!-- Business -->
+    <script type="text/javascript" src="js/base/business/LGIP000001Business.js"></script>
+    <script type="text/javascript" src="js/anavi/business/NCMP999901Business.js"></script>
+    <script type="text/javascript" src="js/anavi/business/NCMP000010Business.js"></script>
+    <script type="text/javascript" src="js/anavi/business/NCMP000110Business.js"></script>
+
+    <!-- Controller -->
+    <script type="text/javascript" src="js/base/controller/LGIP000001Controller.js"></script>
+    <script type="text/javascript" src="js/anavi/controller/NCMP999901Controller.js"></script>
+    <script type="text/javascript" src="js/anavi/controller/NCMP000010Controller.js"></script>
+    <script type="text/javascript" src="js/anavi/controller/NCMP000110Controller.js"></script>
+
+    <!-- DTO -->
+    <script type="text/javascript" src="js/base/dto/LGIP000001.js"></script>
+    <script type="text/javascript" src="js/anavi/dto/NCMP999901.js"></script>
+    <script type="text/javascript" src="js/anavi/dto/NCMP000010.js"></script>
+    <script type="text/javascript" src="js/anavi/dto/NCMP000110.js"></script>
+
+    <!-- Modal -->
+    <script type="text/javascript" src="js/core/Modal.js"></script>
+    <script type="text/javascript" src="js/core/ModalController.js"></script>
+
+    <!-- common -->
+    <script type="text/javascript" src="js/common/UserInfo.js"></script>
+
+</head>
+	<body>
+		<div ui-view="panemain"></div>
+	</body>
+</html>

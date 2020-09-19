@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="custinfo">
+	<resultMap id="selectByPKResultMap" type="jp.co.sample.CustInfoEntity">
+		<result column="custid" property="custid" />
+		<result column="cust_name" property="cust_name" />
+		<result column="cust_kana" property="cust_kana" />
+		<result column="point_ido" property="point_ido" />
+		<result column="point_keido" property="point_keido" />
+		<result column="tel" property="tel" />
+		<result column="addres" property="addres" />
+		<result column="yubino" property="yubino" />
+	</resultMap>
+	<select id="selectByPK" parameterType="jp.co.sample.CustInfoEntity" resultMap="selectByPKResultMap">
+		SELECT
+			custid,
+			cust_name,
+			cust_kana,
+			point_ido,
+			point_keido,
+			tel,
+			addres,
+			yubino
+		FROM
+			CUSTINFO
+		<where>
+			<if test="custid != '' and custid != null">
+				AND custid = #{custid}
+			</if>
+			<if test="cust_name != '' and cust_name != null">
+				AND cust_name = #{cust_name}
+			</if>
+			<if test="cust_kana != '' and cust_kana != null">
+				AND cust_kana = #{cust_kana}
+			</if>
+			<if test="point_ido != '' and point_ido != null">
+				AND point_ido = #{point_ido}
+			</if>
+			<if test="point_keido != '' and point_keido != null">
+				AND point_keido = #{point_keido}
+			</if>
+			<if test="tel != '' and tel != null">
+				AND tel = #{tel}
+			</if>
+			<if test="addres != '' and addres != null">
+				AND addres = #{addres}
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,148 @@
+table, td, th[class*="cell-"]{
+	border:2px #889a9fsolid;
+}
+
+.bg-main{
+	background-color: #f0f8ff !important;
+}
+
+.panemain{
+	width: 800px;
+	height: 500px;
+}
+
+.login_position{
+	position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    margin: auto;
+    width: 300px;
+    height: 270px;
+}
+
+.login_th{
+	height:50px;
+	text-align: center;
+}
+
+.login_td{
+	height:75px;
+	text-align: center;
+}
+
+.login_outline{
+	border: 3px blue solid;
+}
+
+.sampleTable {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 400px;
+}
+/*
+#loading {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+#loading .loadingMsg {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 140px;
+  background: url("[LoadingイメージのURL]") center center no-repeat;
+}
+*/
+
+#loading {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #c0c0c0;
+  /* opacityを使用すると文字まで透過されるため下記を使用 */
+  background: rgba(45,45,45, 0.5);
+}
+
+#loading .loadingMsg {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#Message {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #c0c0c0;
+  background: rgba(45,45,45, 0.5);
+}
+
+#Message .Msgshow {
+  text-align: center;
+  vertical-align: middle;
+  width: 60%;
+  height: 60%;
+  background-color: #f0f8ff;
+  margin-top: 0%;
+  margin-left: 20%;
+  /* animationを使用しメッセージダイアログを動かす 下記サイト参照*/
+  /* http://clubringo.com/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E6%99%82%E3%81%AB%E4%B8%80%E5%BA%A6%E3%81%A0%E3%81%91%E5%8B%95%E3%81%8B%E3%81%99css%E3%81%AEanimation/ */
+  animation:show 0.3s both;
+}
+
+@keyframes show {
+	0% {
+		margin-top: 0%;
+	}
+	50% {
+　　　}
+	100% {
+		margin-top: 10%;
+	}
+}
+
+.NCMP999901header{
+	height:54px;
+}
+
+.NCMP999901header_table{
+	border-bottom: 3px blue solid;
+}
+
+.NCMP999901header_td{
+	width:400px;
+}
+
+.maincontentsSize{
+	height:450px;
+}
+
+.NCMP000010_index_tr{
+	text-align:center;
+	background-color:lightGray;
+}
+
+.NCMP000010_div{
+	position:absolute;
+	top:64px;
+}
+
+.NCMP000010_div_skj{
+	position:absolute;
+	left:50px;
+	height:350px;
+	overflow:auto;
+}

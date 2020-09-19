@@ -1,0 +1,50 @@
+<div class="bg-main maincontentsSize">
+	<div class="NCMP000010_div">
+		<table>
+			<col width="200px">
+			<col width="200px">
+			<col width="200px">
+			<col width="200px">
+			<tr class="NCMP000010_index_tr">
+				<td>
+					<a href="#" ng-click="createReport()">{{ncmp000010Controller.ncmp000010.label.word00001}}</a>
+				</td>
+				<td>
+					<a href="#" ng-click="createReport()">{{ncmp000010Controller.ncmp000010.label.word00002}}</a>
+				</td>
+				<td>
+					<a href="#" ng-click="createTarget()">{{ncmp000010Controller.ncmp000010.label.word00003}}</a>
+				</td>
+				<td>
+					<a href="#" ng-click="createSklSht()">{{ncmp000010Controller.ncmp000010.label.word00004}}</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<a>{{ncmp000010Controller.ncmp000010.label.word00005}}</a>
+					<div class="NCMP000010_div_skj">
+						<table class="NCMP000010_index_tr" border="1">
+							<col width="300px">
+							<tr class="NCMP000010_index_tr">
+								<td>
+									<p>2019年07月21日（日）</p>
+								</td>
+							</tr>
+						</table>
+						<table border="1">
+							<col width="300px">
+							<tr ng-repeat="skjTimeLST in ncmp000010Controller.ncmp000010.skjTimeLst">
+								<td>
+									<p>{{skjTimeLST}}</p>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+				<td colspan="2">
+					<a>{{ncmp000010Controller.ncmp000010.label.word00006}}</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

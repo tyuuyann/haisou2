@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample.mybatis">
+	<resultMap id="selectByPKResultMap" type="jp.co.sample.SampleEntity">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="pass" property="pass" />
+		<result column="authority" property="authority" />
+		<result column="corpId" property="corpId" />
+	</resultMap>
+	<select id="selectByPK" parameterType="jp.co.sample.SampleEntity" resultMap="selectByPKResultMap">
+		SELECT
+			id,
+			name,
+			pass,
+			authority,
+			corpId
+		FROM
+			USERMASTER
+		<where>
+			<if test="id != '' and id != null">
+				AND id = #{id}
+			</if>
+			<if test="name != '' and name != null">
+				AND name = #{name}
+			</if>
+			<if test="pass != '' and pass != null">
+				AND pass = #{pass}
+			</if>
+			<if test="authority != '' and authority != null">
+				AND authority = #{authority}
+			</if>
+			<if test="corpId != '' and corpId != null">
+				AND corpid = #{corpid}
+			</if>
+		</where>
+	</select>
+</mapper>

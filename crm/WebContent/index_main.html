@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="DialogSample">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.14.3.min.js"></script>
+
+    <script>
+    angular.module('DialogSample', ['ui.bootstrap']);
+    angular.module('DialogSample').controller('MainController', ['$scope', '$uibModal',
+      function($scope, $uibModal){
+        $scope.pressOpen = function(){
+          //open
+          var modalInstance = $uibModal.open({
+            templateUrl: 'dialog.html',
+            controller: 'DialogController',
+            backdrop: true,
+            scope: $scope,
+            resolve: {
+              params:function(){
+                return {
+                  title:'DialogSample',
+                  message:'Take it easy!'
+                };
+              }
+            }
+          });
+          //set callback
+          modalInstance.result.then(
+            function(result){
+              $scope.result = result;
+              $scope.event = "close";
+            },
+            function(result){
+              $scope.result = result;
+              $scope.event = "dismiss";
+            }
+          );
+        };
+      }]);
+    angular.module('DialogSample').controller('DialogController', ['$scope', '$uibModalInstance',　'params',
+      function($scope, $uibModalInstance, params){
+        $scope.title = params.title;
+        $scope.message = params.message;
+        $scope.pressClose = function(){
+          $uibModalInstance.close('done');
+        };
+        $scope.pressDismiss = function(){
+          $uibModalInstance.dismiss('done');
+        };
+      }]);
+    </script>
+  </head>
+
+  <body ng-controller="MainController">
+    <button type="button" ng-click="pressOpen()" style="margin:15px;">OPEN</button>
+    <div style="margin:15px;">result : {{result}} by {{event}}</div>
+  </body>
+
+</html>
