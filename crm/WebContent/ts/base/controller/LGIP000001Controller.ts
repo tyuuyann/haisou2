@@ -31,7 +31,6 @@ module crm_module{
                 //取得成功時
                 //値をセットする
                 angular.extend(this.lgip000001 , response.data);
-
             }, (response) => {
 				//取得失敗時
             });
@@ -76,8 +75,9 @@ module crm_module{
             		}
                 },(response) => {
                 	// 通信失敗の場合
+                    this.modal.removeLoading();
                 	// エラー画面をそのうち用意する予定
-                    alert("error");
+                    alert(JSON.stringify(response));
                 });
         	} else {
         		// 入力チェックで問題がある場合

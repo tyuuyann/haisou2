@@ -1,4 +1,5 @@
-<div class="bg-main panemain LGIP000001">
+<div class="panemain LGIP000001">
+	<!--
 	<div class="login_position">
 		<table class="sampleTable login_outline">
 				<tr>
@@ -24,4 +25,16 @@
 				</tr>
 		</table>
 	</div>
+	 -->
+	 <div class="haisou_logo">{{lgip000001Controller.lgip000001.label.word00001}}</div>
+	 <div class="haisou_id">{{lgip000001Controller.lgip000001.label.word00002}}
+	 	<input type="text" ng-model="lgip000001Controller.lgip000001.loginUser">
+	 </div>
+	 <div class="haisou_pass">{{lgip000001Controller.lgip000001.label.word00003}}
+	 	<input type="password" ng-model="lgip000001Controller.lgip000001.loginPasWd">
+	 </div>
+	 <div class="haisou_pass">
+	 	<input type="button" class="btn btn-primary haisou_login_btn_wid" ng-click="lgip000001Controller.login();"
+						value="{{lgip000001Controller.lgip000001.label.word00005}}">
+	 </div>
 </div>

@@ -39,6 +39,14 @@ var crm_module;
                         controllerAs: 'ncmp000110Controller'
                     }
                 }
+            }).state('HCMP000010', {
+                views: {
+                    'mainContent': {
+                        templateUrl: 'view/HCMP000010.html',
+                        controller: 'HCMP000010Controller',
+                        controllerAs: 'hcmp000010Controller'
+                    }
+                }
             });
         }]);
 })(crm_module || (crm_module = {}));

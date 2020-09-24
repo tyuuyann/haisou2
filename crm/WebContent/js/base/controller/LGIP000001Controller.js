@@ -73,8 +73,9 @@ var crm_module;
                     }
                 }, function (response) {
                     // 通信失敗の場合
+                    _this.modal.removeLoading();
                     // エラー画面をそのうち用意する予定
-                    alert("error");
+                    alert(JSON.stringify(response));
                 });
             }
             else {
