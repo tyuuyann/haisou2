@@ -8,11 +8,12 @@ var crm_module;
     var BaseController = base.controller.BaseController;
     var LGIP000001Controller = (function (_super) {
         __extends(LGIP000001Controller, _super);
-        function LGIP000001Controller($scope, $state, lgip000001Business, modal, userInfo, lgip000001) {
+        function LGIP000001Controller($scope, $state, lgip000001Business, ncmp900010business, modal, userInfo, lgip000001) {
             _super.call(this, $scope, $state);
             this.$scope = $scope;
             this.$state = $state;
             this.lgip000001Business = lgip000001Business;
+            this.ncmp900010business = ncmp900010business;
             this.modal = modal;
             this.userInfo = userInfo;
             this.lgip000001 = lgip000001;
@@ -62,7 +63,7 @@ var crm_module;
                         _this.userInfo.setId(response.data.id);
                         _this.userInfo.setName(response.data.name);
                         // 画面遷移
-                        _this.$state.go("CRMHEADER");
+                        _this.ncmp900010business.next("", "HCMP000010", false);
                     }
                     else {
                         // 画面ロック解除
@@ -91,7 +92,7 @@ var crm_module;
         LGIP000001Controller.prototype.clear = function () {
             //alert("");
         };
-        LGIP000001Controller.$inject = ['$scope', '$state', 'LGIP000001Business', 'Modal', 'UserInfo'];
+        LGIP000001Controller.$inject = ['$scope', '$state', 'LGIP000001Business', 'NCMP900010Business', 'Modal', 'UserInfo'];
         return LGIP000001Controller;
     }(BaseController));
     crm_module.LGIP000001Controller = LGIP000001Controller;

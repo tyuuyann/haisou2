@@ -3,11 +3,12 @@ module crm_module{
 
     export class LGIP000001Controller extends BaseController{
 
-        static $inject = ['$scope','$state','LGIP000001Business','Modal','UserInfo']
+        static $inject = ['$scope','$state','LGIP000001Business','NCMP900010Business','Modal','UserInfo']
         constructor(
         		protected $scope: ng.IScope,
         		protected $state: ng.ui.IStateService,
         		protected lgip000001Business:LGIP000001Business,
+                protected ncmp900010business:NCMP900010Business,
         		protected modal:Modal,
     			protected userInfo:UserInfo,
         		protected lgip000001:LGIP000001
@@ -34,8 +35,6 @@ module crm_module{
             }, (response) => {
 				//取得失敗時
             });
-
-
         }
 
         /**
@@ -64,7 +63,8 @@ module crm_module{
             			this.userInfo.setId(response.data.id);
             			this.userInfo.setName(response.data.name);
             			// 画面遷移
-            			this.$state.go("CRMHEADER");
+                        this.ncmp900010business.next("","HCMP000010",false);
+            			//this.$state.go("HCMP000010");
             		} else {
             			// 画面ロック解除
             			this.modal.removeLoading();

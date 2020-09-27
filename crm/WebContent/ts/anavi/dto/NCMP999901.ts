@@ -1,14 +1,11 @@
 module crm_module{
     export class NCMP999901{
-        id: string;
-        name: string;
-    	auth: string;
-    	label: LabelClass;
+        preview: string[];
+    	label: NCMP999901LabelClass;
     }
 
-    export class LabelClass{
+    export class NCMP999901LabelClass{
     	word00001: string;
-    	word00002: string;
     }
 }
 

@@ -14,18 +14,6 @@ module crm_module{
         public ScrJson(): any{
         	return this.$http.get("json/NCMP999901.json");
         }
-
-        /**
-         * ログイン入力チェック
-         */
-        public init(): any {
-
-        }
-
-        public login(): void{
-            //var str = document.getElementById('');
-            //this.$scope.text = str;
-        }
     }
 }
 

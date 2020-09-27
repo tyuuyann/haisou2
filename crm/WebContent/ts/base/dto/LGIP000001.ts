@@ -2,19 +2,10 @@ module crm_module{
     export class LGIP000001{
         loginUser: string;
         loginPasWd: string;
-    	label: LabelClass;
+    	label: LGIP000001LabelClass;
     }
 
-    export class sampleInDTO{
-		loginUser: string;
-    	loginPswd: string;
-	}
-
-	export class sampleOutDTO{
-		checkVal: string
-	}
-
-    export class LabelClass{
+    export class LGIP000001LabelClass{
     	word00001: string;
     	word00002: string;
 		word00003: string;

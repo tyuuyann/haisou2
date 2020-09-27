@@ -40,10 +40,35 @@ module crm_module{
 			}
     	}).state('HCMP000010',{
             views:{
-                'mainContent':{
+                'panemain':{
                     templateUrl: 'view/HCMP000010.html',
                     controller: 'HCMP000010Controller',
                     controllerAs: 'hcmp000010Controller'
+                }
+            }
+        }).state('HAISOUHEADER',{
+            views:{
+                'panemain':{templateUrl: 'panel_main.html'},
+                'header@HAISOUHEADER':{
+                    templateUrl: 'view/NCMP999901.html',
+                    controller: 'NCMP999901Controller',
+                    controllerAs: 'ncmp999901Controller'
+                }
+            }
+        }).state('HAISOUHEADER.HCMP100010',{
+            views:{
+                'mainContent@HAISOUHEADER':{
+                    templateUrl: 'view/HCMP100010.html',
+                    controller: 'HCMP100010Controller',
+                    controllerAs: 'hcmp100010Controller'
+                }
+            }
+        }).state('HAISOUHEADER.HCMP200010',{
+            views:{
+                'mainContent@HAISOUHEADER':{
+                    templateUrl: 'view/HCMP200010.html',
+                    controller: 'HCMP200010Controller',
+                    controllerAs: 'hcmp200010Controller'
                 }
             }
         });

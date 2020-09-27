@@ -61,7 +61,7 @@ module crm_module{
 
         	// サーバのＵＲＬ
         	// 共通部分は後日まとめる予定
-            return this.$http.post("http://192.168.1.14:8080/crm/resource/sample2/login2" , sendData);
+            return this.$http.post("http://localhost:8080/crm/resource/sample2/login2" , sendData);
         }
     }
 }

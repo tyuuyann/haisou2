@@ -6,23 +6,11 @@ var crm_module;
         return LGIP000001;
     }());
     crm_module.LGIP000001 = LGIP000001;
-    var sampleInDTO = (function () {
-        function sampleInDTO() {
+    var LGIP000001LabelClass = (function () {
+        function LGIP000001LabelClass() {
         }
-        return sampleInDTO;
+        return LGIP000001LabelClass;
     }());
-    crm_module.sampleInDTO = sampleInDTO;
-    var sampleOutDTO = (function () {
-        function sampleOutDTO() {
-        }
-        return sampleOutDTO;
-    }());
-    crm_module.sampleOutDTO = sampleOutDTO;
-    var LabelClass = (function () {
-        function LabelClass() {
-        }
-        return LabelClass;
-    }());
-    crm_module.LabelClass = LabelClass;
+    crm_module.LGIP000001LabelClass = LGIP000001LabelClass;
 })(crm_module || (crm_module = {}));
 angular.module('crm').service('LGIP000001', crm_module.LGIP000001);

@@ -18,15 +18,6 @@ var crm_module;
         NCMP999901Business.prototype.ScrJson = function () {
             return this.$http.get("json/NCMP999901.json");
         };
-        /**
-         * ログイン入力チェック
-         */
-        NCMP999901Business.prototype.init = function () {
-        };
-        NCMP999901Business.prototype.login = function () {
-            //var str = document.getElementById('');
-            //this.$scope.text = str;
-        };
         NCMP999901Business.$inject = ['$http'];
         return NCMP999901Business;
     }(BaseBusiness));

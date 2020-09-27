@@ -1,51 +1,44 @@
 
-module crm_module{
-import BaseController = base.controller.BaseController;
+module crm_module {
+    import BaseController = base.controller.BaseController;
 
-export class NCMP999901Controller extends BaseController{
+    export class NCMP999901Controller extends BaseController {
 
-	static $inject = ['$scope','$state','NCMP999901Business','UserInfo']
-	constructor(
-			protected $scope: ng.IScope,
-			protected $state: ng.ui.IStateService,
-			protected ncmp999901Business:NCMP999901Business,
-			protected userInfo:UserInfo,
-			protected ncmp999901:NCMP999901
-	){
-		super($scope,$state);
-		this.ncmp999901 = new NCMP999901();
-		this.init();
-	}
+        static $inject = ['$scope', '$state', 'NCMP999901Business', 'NCMP900010Business', 'UserInfo', 'MainData']
+        constructor(
+            protected $scope: ng.IScope,
+            protected $state: ng.ui.IStateService,
+            protected ncmp999901Business: NCMP999901Business,
+            protected ncmp900010business: NCMP900010Business,
+            protected userInfo: UserInfo,
+            protected mainData: MainData,
+            protected ncmp999901: NCMP999901
+        ) {
+            super($scope, $state);
+            this.ncmp999901 = new NCMP999901();
+            this.init();
+        }
 
-	public init(): void {
-		var _this = this;
-		_this.ncmp999901Business.ScrJson().then((response) => {
-			angular.extend(_this.ncmp999901,response.data);
-		},(response) => {
+        /**
+         * 初期処理
+         */
+        public init(): void {
+            this.ncmp999901Business.ScrJson().then((response) => {
+                angular.extend(this.ncmp999901, response.data);
+                this.$state.go(this.mainData.getNextView());
+            }, (response) => {
 
-		});
-		_this.ncmp999901.id = _this.userInfo.getId();
-		_this.ncmp999901.name = _this.userInfo.getName();
-		_this.$state.go("CRMHEADER.NCMP000010");
+            });
+        }
 
-	}
+        /**
+         * 戻るボタン押下
+         */
+        public pre(): void {
+            this.ncmp900010business.pre();
+        }
 
-	public login(): void{
-		var _this = this;
-
-		//_this.lgip000001Business.init().then(function onSuccess(response){
-			//alert("success");
-		//}
-		//, function onError(response){
-			//alert("error");
-		//}
-		//);
-	}
-
-	public clear(): void{
-		alert("");
-	}
-}
+    }
 }
 
-angular.module('crm').controller('NCMP999901Controller',crm_module.NCMP999901Controller);
+angular.module('crm').controller('NCMP999901Controller', crm_module.NCMP999901Controller);

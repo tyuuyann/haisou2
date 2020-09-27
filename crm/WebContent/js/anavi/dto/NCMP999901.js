@@ -6,11 +6,11 @@ var crm_module;
         return NCMP999901;
     }());
     crm_module.NCMP999901 = NCMP999901;
-    var LabelClass = (function () {
-        function LabelClass() {
+    var NCMP999901LabelClass = (function () {
+        function NCMP999901LabelClass() {
         }
-        return LabelClass;
+        return NCMP999901LabelClass;
     }());
-    crm_module.LabelClass = LabelClass;
+    crm_module.NCMP999901LabelClass = NCMP999901LabelClass;
 })(crm_module || (crm_module = {}));
 angular.module('crm').service('NCMP999901', crm_module.NCMP999901);
