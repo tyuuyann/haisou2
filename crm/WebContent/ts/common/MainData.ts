@@ -6,22 +6,32 @@ module crm_module{
 		constructor(public $http: ng.IHttpService) {
 			super($http);
 		}
+
+        private pcTablet: string;
         private preview: string[] = new Array();
         private nextView: string;
 
-		getPreview(): string[]{
+        public getPcTablet(): string{
+            return this.pcTablet;
+        }
+
+        public setPcTablet(pcTable: string){
+            this.pcTablet = pcTable;
+        }
+
+		public getPreview(): string[]{
 			return this.preview;
 		}
 
-		setPreview(preview: string){
+		public setPreview(preview: string){
 			this.preview.push(preview);
 		}
 
-        getNextView(): string{
+        public getNextView(): string{
             return this.nextView;
         }
 
-        setNextView(nextView: string){
+        public setNextView(nextView: string){
             this.nextView = nextView;
         }
 

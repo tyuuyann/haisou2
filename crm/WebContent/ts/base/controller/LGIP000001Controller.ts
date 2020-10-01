@@ -3,7 +3,7 @@ module crm_module{
 
     export class LGIP000001Controller extends BaseController{
 
-        static $inject = ['$scope','$state','LGIP000001Business','NCMP900010Business','Modal','UserInfo']
+        static $inject = ['$scope','$state','LGIP000001Business','NCMP900010Business','Modal','UserInfo', 'MainData', 'SystemParameter']
         constructor(
         		protected $scope: ng.IScope,
         		protected $state: ng.ui.IStateService,
@@ -11,6 +11,8 @@ module crm_module{
                 protected ncmp900010business:NCMP900010Business,
         		protected modal:Modal,
     			protected userInfo:UserInfo,
+                protected mainData: MainData,
+                protected sys: SystemParameter,
         		protected lgip000001:LGIP000001
         		){
             super($scope,$state);
@@ -32,8 +34,32 @@ module crm_module{
                 //取得成功時
                 //値をセットする
                 angular.extend(this.lgip000001 , response.data);
+                if(navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf( 'iPad') == -1){
+                    this.mainData.setPcTablet("iPhone");
+                } else if(navigator.userAgent.indexOf('Android') > 0) {
+                    this.mainData.setPcTablet("Andriod");
+                } else {
+                    this.mainData.setPcTablet("PC");
+                }
+
+                this.getSys();
+
             }, (response) => {
 				//取得失敗時
+            });
+
+
+        }
+
+        public getSys():void{
+              // システムパラメータの取得
+            this.lgip000001Business.systemJson().then((response) => {
+                //setPropertyが使用できるようにする（angular.extendがsetProperty）
+                //取得成功時
+                //値をセットする
+                angular.extend(this.sys , response.data);
+            }, (response) => {
+                //取得失敗時
             });
         }
 
@@ -52,7 +78,7 @@ module crm_module{
         	if(result == "OK"){
         		// 入力チェックで問題がない場合
         		// 社員の存在チェック
-        		this.lgip000001Business.login(this.lgip000001).then((response) => {
+        		this.lgip000001Business.login(this.lgip000001, this.sys).then((response) => {
         			// 通信成功の場合
         			// 画面ロック解除
             		this.modal.removeLoading();

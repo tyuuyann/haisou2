@@ -13,6 +13,12 @@ var crm_module;
             this.$http = $http;
             this.preview = new Array();
         }
+        MainData.prototype.getPcTablet = function () {
+            return this.pcTablet;
+        };
+        MainData.prototype.setPcTablet = function (pcTable) {
+            this.pcTablet = pcTable;
+        };
         MainData.prototype.getPreview = function () {
             return this.preview;
         };

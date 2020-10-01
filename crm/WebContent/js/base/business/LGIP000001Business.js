@@ -8,15 +8,22 @@ var crm_module;
     var BaseBusiness = base.business.BaseBusiness;
     var LGIP000001Business = (function (_super) {
         __extends(LGIP000001Business, _super);
-        function LGIP000001Business($http) {
+        function LGIP000001Business($http, mainData) {
             _super.call(this, $http);
             this.$http = $http;
+            this.mainData = mainData;
         }
         /**
          * 固定文言の取得
          */
         LGIP000001Business.prototype.ScrJson = function () {
             return this.$http.get("json/LGIP000001.json");
+        };
+        /**
+         * システムパラメータ取得（後日起動時取得にする）
+         */
+        LGIP000001Business.prototype.systemJson = function () {
+            return this.$http.get("json/SystemParameter.json");
         };
         /**
          * ログイン入力チェック
@@ -48,7 +55,7 @@ var crm_module;
          * @param :myscpe[LGIP000001]
          * @return :存在チェック結果
          */
-        LGIP000001Business.prototype.login = function (myscope) {
+        LGIP000001Business.prototype.login = function (myscope, sys) {
             // サーバに送るデータを設定
             var sendData = {
                 // 入力された社員ＩＤ
@@ -58,9 +65,14 @@ var crm_module;
             };
             // サーバのＵＲＬ
             // 共通部分は後日まとめる予定
-            return this.$http.post("http://localhost:8080/crm/resource/sample2/login2", sendData);
+            if (this.mainData.getPcTablet() == "PC") {
+                return this.$http.post(sys.system.PC_HTTP + "sample2/login2", sendData);
+            }
+            else {
+                return this.$http.post(sys.system.TABLET_TEST_HTTP + "sample2/login2", sendData);
+            }
         };
-        LGIP000001Business.$inject = ['$http'];
+        LGIP000001Business.$inject = ['$http', 'MainData'];
         return LGIP000001Business;
     }(BaseBusiness));
     crm_module.LGIP000001Business = LGIP000001Business;

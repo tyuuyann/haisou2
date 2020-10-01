@@ -23,5 +23,6 @@
     <mapper resource="jp/co/sample/usermaster_mapper.xml"/>
     <mapper resource="jp/co/sample/custinfo_mapper.xml"/>
     <mapper resource="jp/co/sample/skj_mapper.xml"/>
+    <mapper resource="jp/co/sample/mapInfo_mapper.xml"/>
   </mappers>
 </configuration>

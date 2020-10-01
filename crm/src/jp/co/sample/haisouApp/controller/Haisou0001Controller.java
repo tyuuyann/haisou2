@@ -6,6 +6,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import jp.co.sample.haisouApp.dto.Haisou0001MapInfoOutDTO;
 import jp.co.sample.haisouApp.dto.Haisou0001OutDTO;
 import jp.co.sample.haisouApp.dto.Haisou0001SkjInDTO;
 import jp.co.sample.haisouApp.dto.Haisou0001SkjOutDTO;
@@ -15,16 +16,18 @@ import jp.co.sample.haisouApp.service.Haisou0001Service;
 public class Haisou0001Controller {
 
 	Haisou0001Service sampleService = new Haisou0001Service();
-//
-//	@GET
-//	@Path("/login")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public LGIP000001InDTO hello() {
-//		LGIP000001InDTO dto = new LGIP000001InDTO();
-//		dto.setLoginUser("11111");
-//		dto.setLoginPswd("11111");
-//		return dto;
-//	}
+
+	@POST
+	@Path("/MapInfo")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Haisou0001MapInfoOutDTO getMapInfoService() {
+		Haisou0001MapInfoOutDTO outdto = new Haisou0001MapInfoOutDTO();
+
+		outdto = sampleService.getMapInfoService();
+
+		return outdto;
+	}
 
 	@POST
 	@Path("/custinfoList")
@@ -37,6 +40,7 @@ public class Haisou0001Controller {
 
 		return outdto;
 	}
+
 	@POST
 	@Path("/skjList")
 	@Produces(MediaType.APPLICATION_JSON)

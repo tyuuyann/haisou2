@@ -34,7 +34,7 @@ module crm_module{
         }
 
          /**
-          *
+          *業務マップボタン押下
           */
         public nextBusMap(): void{
            // 画面遷移
@@ -42,7 +42,7 @@ module crm_module{
         }
 
         /**
-          *
+          *顧客リストボタン押下
           */
         public nextCustList(): void{
            // 画面遷移
@@ -50,19 +50,19 @@ module crm_module{
         }
 
         /**
-          *
+          *スケジュールボタン押下
           */
         public nextSkj(): void{
            // 画面遷移
-           this.$state.go("HCMP000010");
+           this.ncmp900010business.next("HCMP000010","HAISOUHEADER.HCMP300010",true);
         }
 
         /**
-          *
+          *配送管理ボタン押下
           */
         public nextHaisou(): void{
            // 画面遷移
-           this.$state.go("HCMP000010");
+           this.ncmp900010business.next("HCMP000010","HAISOUHEADER.HCMP400010",true);
         }
     }
 }

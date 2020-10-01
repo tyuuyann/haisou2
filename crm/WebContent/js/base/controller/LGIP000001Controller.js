@@ -8,7 +8,7 @@ var crm_module;
     var BaseController = base.controller.BaseController;
     var LGIP000001Controller = (function (_super) {
         __extends(LGIP000001Controller, _super);
-        function LGIP000001Controller($scope, $state, lgip000001Business, ncmp900010business, modal, userInfo, lgip000001) {
+        function LGIP000001Controller($scope, $state, lgip000001Business, ncmp900010business, modal, userInfo, mainData, sys, lgip000001) {
             _super.call(this, $scope, $state);
             this.$scope = $scope;
             this.$state = $state;
@@ -16,6 +16,8 @@ var crm_module;
             this.ncmp900010business = ncmp900010business;
             this.modal = modal;
             this.userInfo = userInfo;
+            this.mainData = mainData;
+            this.sys = sys;
             this.lgip000001 = lgip000001;
             this.lgip000001 = new crm_module.LGIP000001();
             this.init();
@@ -35,6 +37,28 @@ var crm_module;
                 //取得成功時
                 //値をセットする
                 angular.extend(_this.lgip000001, response.data);
+                if (navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) {
+                    _this.mainData.setPcTablet("iPhone");
+                }
+                else if (navigator.userAgent.indexOf('Android') > 0) {
+                    _this.mainData.setPcTablet("Andriod");
+                }
+                else {
+                    _this.mainData.setPcTablet("PC");
+                }
+                _this.getSys();
+            }, function (response) {
+                //取得失敗時
+            });
+        };
+        LGIP000001Controller.prototype.getSys = function () {
+            var _this = this;
+            // システムパラメータの取得
+            this.lgip000001Business.systemJson().then(function (response) {
+                //setPropertyが使用できるようにする（angular.extendがsetProperty）
+                //取得成功時
+                //値をセットする
+                angular.extend(_this.sys, response.data);
             }, function (response) {
                 //取得失敗時
             });
@@ -53,7 +77,7 @@ var crm_module;
             if (result == "OK") {
                 // 入力チェックで問題がない場合
                 // 社員の存在チェック
-                this.lgip000001Business.login(this.lgip000001).then(function (response) {
+                this.lgip000001Business.login(this.lgip000001, this.sys).then(function (response) {
                     // 通信成功の場合
                     // 画面ロック解除
                     _this.modal.removeLoading();
@@ -92,7 +116,7 @@ var crm_module;
         LGIP000001Controller.prototype.clear = function () {
             //alert("");
         };
-        LGIP000001Controller.$inject = ['$scope', '$state', 'LGIP000001Business', 'NCMP900010Business', 'Modal', 'UserInfo'];
+        LGIP000001Controller.$inject = ['$scope', '$state', 'LGIP000001Business', 'NCMP900010Business', 'Modal', 'UserInfo', 'MainData', 'SystemParameter'];
         return LGIP000001Controller;
     }(BaseController));
     crm_module.LGIP000001Controller = LGIP000001Controller;

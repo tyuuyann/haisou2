@@ -23,8 +23,21 @@ var crm_module;
             if (retention) {
                 this.mainData.setPreview(pre);
             }
+            if ("HAISOUHEADER" == nextscean[0]) {
+                if ("HCMP100010" == nextscean[1] ||
+                    "HCMP200010" == nextscean[1] ||
+                    "HCMP300010" == nextscean[1] ||
+                    "HCMP400010" == nextscean[1]) {
+                    this.$state.go(nextscean[0]);
+                }
+                else {
+                    this.$state.go(next);
+                }
+            }
+            else {
+                this.$state.go(nextscean[0]);
+            }
             this.mainData.setNextView(next);
-            this.$state.go(nextscean[0]);
         };
         /**
          * 前画面遷移共通処理

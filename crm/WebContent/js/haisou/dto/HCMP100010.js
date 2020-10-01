@@ -6,6 +6,12 @@ var crm_module;
         return HCMP100010;
     }());
     crm_module.HCMP100010 = HCMP100010;
+    var Haisou0001MapInfoOutDTO = (function () {
+        function Haisou0001MapInfoOutDTO() {
+        }
+        return Haisou0001MapInfoOutDTO;
+    }());
+    crm_module.Haisou0001MapInfoOutDTO = Haisou0001MapInfoOutDTO;
     var HCMP100010LabelClass = (function () {
         function HCMP100010LabelClass() {
         }

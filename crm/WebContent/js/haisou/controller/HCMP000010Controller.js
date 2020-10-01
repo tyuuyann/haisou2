@@ -36,32 +36,32 @@ var crm_module;
             });
         };
         /**
-         *
+         *業務マップボタン押下
          */
         HCMP000010Controller.prototype.nextBusMap = function () {
             // 画面遷移
             this.ncmp900010business.next("HCMP000010", "HAISOUHEADER.HCMP100010", true);
         };
         /**
-          *
+          *顧客リストボタン押下
           */
         HCMP000010Controller.prototype.nextCustList = function () {
             // 画面遷移
             this.ncmp900010business.next("HCMP000010", "HAISOUHEADER.HCMP200010", true);
         };
         /**
-          *
+          *スケジュールボタン押下
           */
         HCMP000010Controller.prototype.nextSkj = function () {
             // 画面遷移
-            this.$state.go("HCMP000010");
+            this.ncmp900010business.next("HCMP000010", "HAISOUHEADER.HCMP300010", true);
         };
         /**
-          *
+          *配送管理ボタン押下
           */
         HCMP000010Controller.prototype.nextHaisou = function () {
             // 画面遷移
-            this.$state.go("HCMP000010");
+            this.ncmp900010business.next("HCMP000010", "HAISOUHEADER.HCMP400010", true);
         };
         HCMP000010Controller.$inject = ['$scope', '$state', 'HCMP000010Business', 'NCMP900010Business', 'Modal', 'UserInfo'];
         return HCMP000010Controller;

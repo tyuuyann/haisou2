@@ -6,6 +6,12 @@ var crm_module;
         return HCMP200010;
     }());
     crm_module.HCMP200010 = HCMP200010;
+    var HCMP200010OutDTO = (function () {
+        function HCMP200010OutDTO() {
+        }
+        return HCMP200010OutDTO;
+    }());
+    crm_module.HCMP200010OutDTO = HCMP200010OutDTO;
     var HCMP200010LabelClass = (function () {
         function HCMP200010LabelClass() {
         }

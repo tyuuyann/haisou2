@@ -8,9 +8,11 @@ var crm_module;
     var BaseBusiness = base.business.BaseBusiness;
     var HCMP200010Business = (function (_super) {
         __extends(HCMP200010Business, _super);
-        function HCMP200010Business($http) {
+        function HCMP200010Business($http, mainData, sys) {
             _super.call(this, $http);
             this.$http = $http;
+            this.mainData = mainData;
+            this.sys = sys;
         }
         /**
          * 固定文言の取得
@@ -19,46 +21,21 @@ var crm_module;
             return this.$http.get("json/HCMP200010.json");
         };
         /**
-         * ログイン入力チェック
-         * @param :myscpe[LGIP000001] messageInfoLst[messageInfoLst]
-         * @return :returnval "OK"入力チェックに問題ない場合　"NG"入力チェックに問題がある場合
+         * 顧客一覧取得
          */
-        HCMP200010Business.prototype.init = function (myscope, messageInfoLst) {
-            // 戻り値を"OK"で初期化
-            var returnval = "OK";
-            // 社員ＩＤが空白の場合
-            if (myscope.loginUser == "") {
-                // メッセージの追加
-                messageInfoLst.push({ msgID: "E-000010", msgInfo2: [myscope.label.word00006] });
-                // 入力チェック問題あり
-                returnval = "NG";
-            }
-            // パスワードが空白の場合
-            if (myscope.loginPasWd == "") {
-                // メッセージの追加
-                messageInfoLst.push({ msgID: "E-000010", msgInfo2: [myscope.label.word00007] });
-                // 入力チェック問題あり
-                returnval = "NG";
-            }
-            // 戻り値
-            return returnval;
-        };
-        /**
-         *
-         */
-        HCMP200010Business.prototype.login = function (myscope) {
+        HCMP200010Business.prototype.getCustList = function () {
             // サーバに送るデータを設定
-            var sendData = {
-                // 入力された社員ＩＤ
-                loginUser: myscope.loginUser,
-                // 入力された社員パスワード
-                loginPswd: myscope.loginPasWd
-            };
+            var sendData = {};
             // サーバのＵＲＬ
             // 共通部分は後日まとめる予定
-            return this.$http.post("http://192.168.1.14:8080/crm/resource/sample2/login2", sendData);
+            if (this.mainData.getPcTablet() == "PC") {
+                return this.$http.post(this.sys.system.PC_HTTP + "haisou/custinfoList", sendData);
+            }
+            else {
+                return this.$http.post(this.sys.system.TABLET_TEST_HTTP + "haisou/custinfoList", sendData);
+            }
         };
-        HCMP200010Business.$inject = ['$http'];
+        HCMP200010Business.$inject = ['$http', 'MainData', 'SystemParameter'];
         return HCMP200010Business;
     }(BaseBusiness));
     crm_module.HCMP200010Business = HCMP200010Business;

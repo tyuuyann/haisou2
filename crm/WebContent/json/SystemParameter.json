@@ -1,0 +1,7 @@
+{
+	"system":{
+		"PC_HTTP": "http://localhost:8080/crm/resource/",
+		"TABLET_TEST_HTTP": "http://192.168.1.14:8080/crm/resource/",
+		"TABLET_HON_HTTP": "http://match.mydns.jp:8080/crm/resource/"
+	}
+}

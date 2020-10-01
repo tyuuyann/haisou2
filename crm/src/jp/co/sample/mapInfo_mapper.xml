@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapInfo">
+	<resultMap id="selectByPKResultMap" type="jp.co.sample.MapInfoEntity">
+		<result column="map_no" property="map_no" />
+		<result column="pop_width" property="pop_width" />
+		<result column="pop_height" property="pop_height" />
+		<result column="memo" property="memo" />
+	</resultMap>
+	<select id="selectByPK" parameterType="jp.co.sample.MapInfoEntity" resultMap="selectByPKResultMap">
+		SELECT
+			map_no,
+			pop_width,
+			pop_height,
+			memo
+		FROM
+			mapInfo
+		<where>
+			<if test="map_no != '' and map_no != null">
+				AND map_no = #{map_no}
+			</if>
+			<if test="pop_width != '' and pop_width != null">
+				AND pop_width = #{pop_width}
+			</if>
+			<if test="pop_height != '' and pop_height != null">
+				AND pop_height = #{pop_height}
+			</if>
+			<if test="memo != '' and memo != null">
+				AND memo = #{memo}
+			</if>
+		</where>
+	</select>
+</mapper>
