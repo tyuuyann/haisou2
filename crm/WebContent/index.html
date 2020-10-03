@@ -9,8 +9,14 @@
 <script type="text/javascript">
 var src="./panel.html#/login";
 
-var res=window.open(src,"_self","");
+var res;
 
+if (navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) {
+	 res=window.open(src,"_self","");
+}
+else if (navigator.userAgent.indexOf('Android') > 0) {
+	res=window.open(src,"_blank","");
+}
 
 </script>
 </body>
