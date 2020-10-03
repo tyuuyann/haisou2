@@ -68,13 +68,14 @@ var crm_module;
             if (this.mainData.getPcTablet() == "PC") {
                 return this.$http.post(sys.system.PC_HTTP + "sample2/login2", sendData);
             }
-            else if(this.mainData.getPcTablet() == "Android"){
-            	var config = {
-                        headers: { 'Content-Type':'application/x-www-form-urlencoded;charset=utf-8'},
-                 };
+            else if (this.mainData.getPcTablet() == "Android") {
+                var config = {
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+                };
                 return this.$http.post(sys.system.TABLET_TEST_HTTP + "sample2/login2", sendData, config);
-            }else{
-            	return this.$http.post(sys.system.TABLET_TEST_HTTP + "sample2/login2", sendData);
+            }
+            else {
+                return this.$http.post(sys.system.TABLET_TEST_HTTP + "sample2/login2", sendData);
             }
         };
         LGIP000001Business.$inject = ['$http', 'MainData'];
